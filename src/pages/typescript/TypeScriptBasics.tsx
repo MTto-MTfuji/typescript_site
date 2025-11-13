@@ -8,6 +8,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 
 export default function TypeScriptBasics() {
   const [currentChapter, setCurrentChapter] = useState(0)
