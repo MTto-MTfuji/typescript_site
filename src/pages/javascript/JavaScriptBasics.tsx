@@ -8,6 +8,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 
 export default function JavaScriptBasics() {
   const [currentChapter, setCurrentChapter] = useState(0)
@@ -1141,8 +1142,29 @@ console.log(product.isAvailable()); // true`}
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'JavaScript 基礎編',
+    description: 'プログラミング初心者の方でも理解できるように、JavaScriptの超基本から丁寧に説明します。変数、関数、オブジェクトなど、JavaScriptの基本を学びます。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Beginner',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div>
+    <>
+      <SEOHead
+        title="JavaScript 基礎編"
+        description="プログラミング初心者の方でも理解できるように、JavaScriptの超基本から丁寧に説明します。変数、関数、オブジェクトなど、JavaScriptの基本を学びます。"
+        keywords="JavaScript, 基礎, 初心者, プログラミング, 変数, 関数, オブジェクト, チュートリアル"
+        jsonLd={jsonLd}
+      />
+      <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>JavaScript 基礎編</h1>
         <BookmarkButton path="/javascript/basics" title="JavaScript 基礎編" category="JavaScript基礎" />
@@ -1172,5 +1194,6 @@ console.log(product.isAvailable()); // true`}
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }

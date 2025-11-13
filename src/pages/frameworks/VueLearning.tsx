@@ -7,6 +7,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 
 export default function VueLearning() {
   const [currentChapter, setCurrentChapter] = useState(0)
@@ -600,8 +601,29 @@ function handleLogin() {
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'Vue.js + TypeScript 学習',
+    description: 'Vue.jsとTypeScriptを組み合わせて、モダンなWebアプリケーションを構築する方法を学びます。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Beginner',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div>
+    <>
+      <SEOHead
+        title="Vue.js + TypeScript 学習"
+        description="Vue.jsとTypeScriptを組み合わせて、モダンなWebアプリケーションを構築する方法を学びます。コンポーネント、リアクティビティ、Composition APIなどを習得します。"
+        keywords="Vue.js, TypeScript, プログラミング, コンポーネント, Composition API, チュートリアル"
+        jsonLd={jsonLd}
+      />
+      <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>Vue.js + TypeScript 学習</h1>
         <BookmarkButton path="/frameworks/vue" title="Vue.js + TypeScript 学習" category="Vue.js" />
@@ -630,6 +652,7 @@ function handleLogin() {
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }
 

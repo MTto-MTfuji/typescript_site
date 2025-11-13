@@ -8,6 +8,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 
 export default function TypeScriptAdvanced() {
   const [currentChapter, setCurrentChapter] = useState(0)
@@ -690,8 +691,29 @@ type Test6 = IsNever<string>; // false`}
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'TypeScript 上級編',
+    description: '条件型、テンプレートリテラル型の高度な使い方、型レベルプログラミングなど、上級者向けのTypeScriptの内容を学びます。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Advanced',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div>
+    <>
+      <SEOHead
+        title="TypeScript 上級編"
+        description="条件型、テンプレートリテラル型の高度な使い方、型レベルプログラミングなど、上級者向けのTypeScriptの内容を学びます。複雑な型操作をマスターします。"
+        keywords="TypeScript, 上級, プログラミング, 条件型, テンプレートリテラル型, 型レベルプログラミング, チュートリアル"
+        jsonLd={jsonLd}
+      />
+      <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>TypeScript 上級編</h1>
         <BookmarkButton path="/typescript/advanced" title="TypeScript 上級編" category="TypeScript上級" />
@@ -720,6 +742,7 @@ type Test6 = IsNever<string>; // false`}
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }
 

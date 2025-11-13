@@ -7,6 +7,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 
 export default function NextLearning() {
   const [currentChapter, setCurrentChapter] = useState(0)
@@ -632,8 +633,29 @@ module.exports = {
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'Next.js + TypeScript 学習',
+    description: 'Next.jsとTypeScriptを組み合わせて、本番環境で使えるフルスタックアプリケーションを構築する方法を学びます。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Beginner',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div>
+    <>
+      <SEOHead
+        title="Next.js + TypeScript 学習"
+        description="Next.jsとTypeScriptを組み合わせて、本番環境で使えるフルスタックアプリケーションを構築する方法を学びます。SSR、SSG、API Routesなどを習得します。"
+        keywords="Next.js, TypeScript, プログラミング, SSR, SSG, API Routes, フルスタック, チュートリアル"
+        jsonLd={jsonLd}
+      />
+      <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>Next.js + TypeScript 学習</h1>
         <BookmarkButton path="/frameworks/next" title="Next.js + TypeScript 学習" category="Next.js" />
@@ -662,6 +684,7 @@ module.exports = {
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }
 

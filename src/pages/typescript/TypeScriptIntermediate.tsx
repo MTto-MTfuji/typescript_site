@@ -7,6 +7,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 
 export default function TypeScriptIntermediate() {
   const [currentChapter, setCurrentChapter] = useState(0)
@@ -644,8 +645,29 @@ const getString: GetString = (): string | number => {
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'TypeScript 中級編',
+    description: 'ジェネリクス、ユーティリティ型、高度な型操作など、より実践的なTypeScriptの内容を学びます。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Intermediate',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div>
+    <>
+      <SEOHead
+        title="TypeScript 中級編"
+        description="ジェネリクス、ユーティリティ型、高度な型操作など、より実践的なTypeScriptの内容を学びます。型の再利用性と柔軟性を向上させる技術を習得します。"
+        keywords="TypeScript, 中級, プログラミング, ジェネリクス, ユーティリティ型, 型操作, チュートリアル"
+        jsonLd={jsonLd}
+      />
+      <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>TypeScript 中級編</h1>
         <BookmarkButton path="/typescript/intermediate" title="TypeScript 中級編" category="TypeScript中級" />
@@ -674,6 +696,7 @@ const getString: GetString = (): string | number => {
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }
 

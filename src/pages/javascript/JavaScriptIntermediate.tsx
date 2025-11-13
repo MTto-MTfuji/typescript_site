@@ -7,6 +7,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 
 export default function JavaScriptIntermediate() {
   const [currentChapter, setCurrentChapter] = useState(0)
@@ -633,8 +634,29 @@ console.log(counter.decrement()); // 1
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'JavaScript 中級編',
+    description: 'ES6以降の機能、配列操作、非同期処理など、より実践的なJavaScriptの内容を学びます。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Intermediate',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div>
+    <>
+      <SEOHead
+        title="JavaScript 中級編"
+        description="ES6以降の機能、配列操作、非同期処理など、より実践的なJavaScriptの内容を学びます。デストラクチャリング、スプレッド構文、Promise、async/awaitなどを習得します。"
+        keywords="JavaScript, 中級, プログラミング, ES6, 非同期処理, Promise, async/await, 配列操作, チュートリアル"
+        jsonLd={jsonLd}
+      />
+      <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>JavaScript 中級編</h1>
         <BookmarkButton path="/javascript/intermediate" title="JavaScript 中級編" category="JavaScript中級" />
@@ -663,6 +685,7 @@ console.log(counter.decrement()); // 1
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }
 

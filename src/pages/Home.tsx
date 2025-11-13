@@ -1,11 +1,32 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Code, Zap, BookOpen, CheckCircle, Database } from 'lucide-react'
 import AdPlacement from '../components/AdPlacement'
+import SEOHead from '../components/SEOHead'
 import './Home.css'
 
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'TypeScript道場',
+    url: 'https://a-blue-three.vercel.app',
+    description: 'JavaScriptとTypeScriptを基礎から実践的なフレームワークまで体系的に学べる学習サイト',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://a-blue-three.vercel.app/?q={search_term_string}',
+      'query-input': 'required name=search_term_string'
+    }
+  }
+
   return (
-    <div className="home">
+    <>
+      <SEOHead
+        title="ホーム"
+        description="JavaScriptとTypeScriptを基礎から実践的なフレームワークまで体系的に学べる学習サイト。初心者から上級者まで対応。無料で学習を始められます。"
+        keywords="JavaScript, TypeScript, 学習, プログラミング, React, Vue, Next.js, チュートリアル, 道場, 初心者, 無料学習サイト"
+        jsonLd={jsonLd}
+      />
+      <div className="home">
       <div className="home-content">
       <div className="hero">
         <h1>TypeScript道場</h1>
@@ -153,6 +174,7 @@ export default function Home() {
       </div>
       </div>
     </div>
+    </>
   )
 }
 

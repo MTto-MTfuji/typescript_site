@@ -8,6 +8,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 
 export default function JavaScriptAdvanced() {
   const [currentChapter, setCurrentChapter] = useState(0)
@@ -781,8 +782,29 @@ const result = array
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'JavaScript 上級編',
+    description: '高度なパターン、パフォーマンス最適化、メタプログラミングなど、上級者向けのJavaScriptの内容を学びます。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Advanced',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div>
+    <>
+      <SEOHead
+        title="JavaScript 上級編"
+        description="高度なパターン、パフォーマンス最適化、メタプログラミングなど、上級者向けのJavaScriptの内容を学びます。デザインパターン、プロキシ、リフレクションなどを習得します。"
+        keywords="JavaScript, 上級, プログラミング, デザインパターン, パフォーマンス最適化, メタプログラミング, チュートリアル"
+        jsonLd={jsonLd}
+      />
+      <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>JavaScript 上級編</h1>
         <BookmarkButton path="/javascript/advanced" title="JavaScript 上級編" category="JavaScript上級" />
@@ -811,6 +833,7 @@ const result = array
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }
 

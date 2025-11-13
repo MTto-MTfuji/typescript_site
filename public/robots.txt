@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://a-blue-three.vercel.app/sitemap.xml
+
+# クロール頻度の制御（オプション）
+Crawl-delay: 1

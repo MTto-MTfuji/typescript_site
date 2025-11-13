@@ -712,8 +712,29 @@ console.log("数値:", num * 2);`}
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'TypeScript 基礎編',
+    description: '型システム、インターフェース、基本的な型定義など、TypeScriptの基礎を学びます。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Beginner',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div>
+    <>
+      <SEOHead
+        title="TypeScript 基礎編"
+        description="型システム、インターフェース、基本的な型定義など、TypeScriptの基礎を学びます。JavaScriptからTypeScriptへの移行方法も解説します。"
+        keywords="TypeScript, 基礎, 初心者, プログラミング, 型システム, インターフェース, チュートリアル"
+        jsonLd={jsonLd}
+      />
+      <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>TypeScript 基礎編</h1>
         <BookmarkButton path="/typescript/basics" title="TypeScript 基礎編" category="TypeScript基礎" />
@@ -742,6 +763,7 @@ console.log("数値:", num * 2);`}
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }
 

@@ -7,6 +7,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 import { createNobelDatabase, createGameDatabase } from '../../utils/sqlDatabase'
 import './SQLIntermediate.css'
 
@@ -519,8 +520,29 @@ export default function SQLIntermediate() {
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'SQL 中級編',
+    description: 'JOIN、サブクエリ、NULLの扱いなど、より高度なSQLを学びましょう。SQLZooスタイルの段階的な練習問題で、実践的にSQLを習得できます。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Intermediate',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div className="sql-intermediate">
+    <>
+      <SEOHead
+        title="SQL 中級編"
+        description="JOIN、サブクエリ、NULLの扱いなど、より高度なSQLを学びましょう。SQLZooスタイルの段階的な練習問題で、実践的にSQLを習得できます。"
+        keywords="SQL, 中級, データベース, JOIN, サブクエリ, NULL, チュートリアル, SQLZoo"
+        jsonLd={jsonLd}
+      />
+      <div className="sql-intermediate">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>SQL 中級編</h1>
         <BookmarkButton path="/sql/intermediate" title="SQL 中級編" category="SQL中級" />
@@ -642,6 +664,7 @@ export default function SQLIntermediate() {
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }
 

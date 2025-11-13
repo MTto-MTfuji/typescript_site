@@ -7,6 +7,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 
 export default function ReactLearning() {
   const [currentChapter, setCurrentChapter] = useState(0)
@@ -338,8 +339,29 @@ userList.forEach(user => console.log(user));`}
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'React 基礎編',
+    description: 'Reactの基礎から学びましょう。コンポーネントベースのUIライブラリの基本を段階的に理解します。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Beginner',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div>
+    <>
+      <SEOHead
+        title="React 基礎編"
+        description="Reactの基礎から学びましょう。コンポーネントベースのUIライブラリの基本を段階的に理解します。JSX、コンポーネント、props、stateなどを習得します。"
+        keywords="React, 基礎, プログラミング, コンポーネント, JSX, TypeScript, チュートリアル"
+        jsonLd={jsonLd}
+      />
+      <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>React 基礎編</h1>
         <BookmarkButton path="/frameworks/react" title="React 基礎編" category="React" />
@@ -368,5 +390,6 @@ userList.forEach(user => console.log(user));`}
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }

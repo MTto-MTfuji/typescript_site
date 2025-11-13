@@ -7,6 +7,7 @@ import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
 import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
+import SEOHead from '../../components/SEOHead'
 import { createWorldDatabase } from '../../utils/sqlDatabase'
 import './SQLBasics.css'
 
@@ -627,8 +628,29 @@ export default function SQLBasics() {
   const previousChapterTitle = currentChapter > 0 ? chapters[currentChapter - 1].title : undefined
   const nextChapterTitle = currentChapter < chapters.length - 1 ? chapters[currentChapter + 1].title : undefined
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'SQL 基礎編',
+    description: 'SQLの基本を学びましょう。SELECT文から始めて、データベースから情報を取得する方法を学びます。SQLZooスタイルの段階的な練習問題で、実践的にSQLを習得できます。',
+    provider: {
+      '@type': 'Organization',
+      name: 'TypeScript道場',
+      url: 'https://a-blue-three.vercel.app'
+    },
+    educationalLevel: 'Beginner',
+    inLanguage: 'ja'
+  }
+
   return (
-    <div className="sql-basics">
+    <>
+      <SEOHead
+        title="SQL 基礎編"
+        description="SQLの基本を学びましょう。SELECT文から始めて、データベースから情報を取得する方法を学びます。SQLZooスタイルの段階的な練習問題で、実践的にSQLを習得できます。"
+        keywords="SQL, 基礎, データベース, SELECT, WHERE, ORDER BY, GROUP BY, チュートリアル, SQLZoo"
+        jsonLd={jsonLd}
+      />
+      <div className="sql-basics">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
         <h1>SQL 基礎編</h1>
         <BookmarkButton path="/sql/basics" title="SQL 基礎編" category="SQL基礎" />
@@ -700,5 +722,6 @@ export default function SQLBasics() {
         nextTitle={nextChapterTitle}
       />
     </div>
+    </>
   )
 }

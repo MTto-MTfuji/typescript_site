@@ -11,6 +11,7 @@ import {
   ResponsiveContainer
 } from 'recharts'
 import { format, startOfWeek, addDays } from 'date-fns'
+import SEOHead from '../components/SEOHead'
 import './Dashboard.css'
 
 const CHART_COLORS = {
@@ -179,8 +180,23 @@ export default function Dashboard() {
     })
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: '学習ダッシュボード',
+    description: '学習進捗や練習問題の成績を確認できるダッシュボード',
+    url: 'https://a-blue-three.vercel.app/dashboard'
+  }
+
   return (
-    <div className="dashboard">
+    <>
+      <SEOHead
+        title="学習ダッシュボード"
+        description="学習進捗や練習問題の成績を確認できるダッシュボード。日々の学習時間、カテゴリ別の進捗、練習問題の正答率などを可視化します。"
+        keywords="学習ダッシュボード, 進捗管理, 練習問題, 成績"
+        jsonLd={jsonLd}
+      />
+      <div className="dashboard">
       <div className="dashboard-header">
         <h1>学習ダッシュボード</h1>
         <div className="stats-cards">
@@ -499,5 +515,6 @@ export default function Dashboard() {
         )}
       </div>
     </div>
+    </>
   )
 }
