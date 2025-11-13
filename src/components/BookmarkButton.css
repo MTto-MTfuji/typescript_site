@@ -1,0 +1,31 @@
+.bookmark-button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.bookmark-button:hover {
+  background: var(--surface-light);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.bookmark-button.bookmarked {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.bookmark-button.bookmarked:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+

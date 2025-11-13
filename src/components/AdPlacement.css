@@ -1,0 +1,74 @@
+/* デスクトップ/タブレット用インライン広告 */
+.desktop-inline-ad {
+  display: none;
+  width: 100%;
+  margin: 2.5rem 0;
+  padding: 0;
+}
+
+.ad-placeholder-inline {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.ad-placeholder-inline .ad-label {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--surface-light);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.ad-placeholder-inline .ad-content {
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-placeholder-inline .ad-content p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* タブレット以上で表示 */
+@media (min-width: 769px) {
+  .desktop-inline-ad {
+    display: block;
+  }
+}
+
+/* タブレットサイズ調整 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ad-placeholder-inline {
+    min-height: 180px;
+    padding: 1.25rem;
+  }
+}
+
+/* デスクトップサイズ調整 */
+@media (min-width: 1025px) {
+  .ad-placeholder-inline {
+    min-height: 200px;
+    padding: 1.5rem;
+  }
+}
+
+

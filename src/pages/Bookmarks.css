@@ -1,0 +1,130 @@
+.bookmarks-page {
+  max-width: 1200px;
+}
+
+.bookmarks-page h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.bookmarks-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+}
+
+.bookmarks-empty svg {
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.bookmarks-empty p {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.bookmarks-empty-hint {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.bookmarks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.bookmark-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.bookmark-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-color: var(--primary);
+}
+
+.bookmark-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.bookmark-link {
+  text-decoration: none;
+  flex: 1;
+}
+
+.bookmark-link h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  transition: color 0.2s;
+}
+
+.bookmark-link:hover h3 {
+  color: var(--primary);
+}
+
+.bookmark-remove {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.bookmark-remove:hover {
+  background: var(--surface-light);
+  color: var(--error);
+}
+
+.bookmark-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bookmark-category {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  background: var(--surface-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.bookmark-date {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* タブレット（769px - 1024px） */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .bookmarks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* モバイル（max-width: 768px） */
+@media (max-width: 768px) {
+  .bookmarks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+

@@ -1,0 +1,286 @@
+.data-migration-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.migration-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.migration-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.migration-header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.migration-icon {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.migration-icon.success {
+  color: var(--success, #10b981);
+}
+
+.migration-icon.error {
+  color: var(--error, #ef4444);
+}
+
+.migration-icon.info {
+  color: var(--text-muted);
+}
+
+.migration-icon.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.migration-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.migration-card.success {
+  border-color: var(--success, #10b981);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.migration-card.error {
+  border-color: var(--error, #ef4444);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.migration-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.migration-card p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.migration-summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.migration-summary h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background: var(--surface-light);
+  border-radius: 0.5rem;
+}
+
+.summary-label {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.summary-value {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.summary-total {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.migration-warning {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  display: flex;
+  gap: 1rem;
+}
+
+.migration-warning strong {
+  color: #856404;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.migration-warning ul {
+  margin: 0.5rem 0 0 1.5rem;
+  color: #856404;
+  font-size: 0.875rem;
+}
+
+.migration-warning li {
+  margin-bottom: 0.25rem;
+}
+
+.migration-button {
+  padding: 0.875rem 2rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.migration-button:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.migration-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.migration-progress {
+  margin-top: 1.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--surface-light);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.3s;
+}
+
+.progress-text {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.migration-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.stat-value.success {
+  color: var(--success, #10b981);
+}
+
+.stat-value.error {
+  color: var(--error, #ef4444);
+}
+
+.migration-errors {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--error, #ef4444);
+  border-radius: 0.5rem;
+  text-align: left;
+}
+
+.migration-errors h3 {
+  color: var(--error, #ef4444);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.migration-errors ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: var(--error, #ef4444);
+  font-size: 0.875rem;
+}
+
+.migration-errors li {
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .data-migration-page {
+    padding: 1rem;
+  }
+
+  .migration-card {
+    padding: 1.5rem;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .migration-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+

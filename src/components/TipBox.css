@@ -1,0 +1,23 @@
+.tip-box {
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 4px solid var(--warning);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.tip-icon {
+  color: var(--warning);
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.tip-content {
+  color: var(--text);
+  line-height: 1.7;
+}
+
+

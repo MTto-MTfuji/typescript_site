@@ -1,0 +1,74 @@
+/* モバイル広告コンポーネント */
+.mobile-ad-container {
+  display: none;
+  width: 100%;
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.mobile-ad-container.banner {
+  margin: 2rem 0;
+}
+
+.mobile-ad-container.inline {
+  margin: 1.5rem 0;
+}
+
+.mobile-ad-banner {
+  width: 100%;
+  max-width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-label {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--surface-light);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.ad-content {
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-content p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* モバイルでのみ表示（max-width: 768px） */
+@media (max-width: 768px) {
+  .mobile-ad-container {
+    display: block;
+  }
+
+  .mobile-ad-banner {
+    min-height: 120px;
+  }
+
+  .mobile-ad-container.inline .mobile-ad-banner {
+    min-height: 100px;
+  }
+}
+

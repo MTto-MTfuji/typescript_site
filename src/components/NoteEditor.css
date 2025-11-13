@@ -1,0 +1,118 @@
+.note-editor {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.note-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.note-editor-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.note-indicator {
+  color: var(--primary);
+  font-size: 0.75rem;
+}
+
+.note-editor-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+}
+
+.note-editor-toggle:hover {
+  background: var(--surface-light);
+  color: var(--text);
+}
+
+.note-editor-content {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.note-textarea {
+  width: 100%;
+  padding: 1rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  min-height: 120px;
+  margin-bottom: 1rem;
+}
+
+.note-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.note-editor-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.note-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
+}
+
+.note-button.save {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.note-button.save:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.note-button.delete {
+  background: transparent;
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.note-button.delete:hover {
+  background: var(--error);
+  color: white;
+}
+
+
