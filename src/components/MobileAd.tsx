@@ -7,48 +7,51 @@ interface MobileAdProps {
 }
 
 export default function MobileAd({ variant = 'banner', className = '' }: MobileAdProps) {
+  const adRef = useRef<HTMLDivElement>(null)
   const adInitialized = useRef(false)
 
   useEffect(() => {
     if (adInitialized.current) return
-    adInitialized.current = true
 
-    try {
-      // AdSenseスクリプトが読み込まれるまで待ってから初期化
-      const initAd = () => {
-        try {
-          if (typeof window !== 'undefined') {
-            // @ts-ignore
-            (window.adsbygoogle = window.adsbygoogle || []).push({})
-          }
-        } catch (err) {
-          console.error('AdSense error:', err)
-        }
-      }
-
-      // スクリプトが既に読み込まれているか確認
-      if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
-        // 少し待ってから初期化（DOM要素が確実に存在するように）
-        setTimeout(initAd, 100)
-      } else {
-        // スクリプトの読み込みを待つ
-        const checkAdSense = setInterval(() => {
+    const initAd = () => {
+      if (!adRef.current) return
+      
+      try {
+        // この広告ユニット内の<ins>タグを探す
+        const insElement = adRef.current.querySelector('.adsbygoogle') as HTMLElement
+        if (insElement && !insElement.getAttribute('data-adsbygoogle-status')) {
+          // AdSenseがまだ初期化されていない場合のみ初期化
           if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
-            clearInterval(checkAdSense)
-            setTimeout(initAd, 100)
+            try {
+              // @ts-ignore
+              (window.adsbygoogle = window.adsbygoogle || []).push({})
+              adInitialized.current = true
+            } catch (err) {
+              console.error('AdSense error:', err)
+            }
           }
-        }, 100)
-
-        // 10秒後にタイムアウト
-        setTimeout(() => clearInterval(checkAdSense), 10000)
+        }
+      } catch (err) {
+        console.error('AdSense initialization error:', err)
       }
-    } catch (err) {
-      console.error('AdSense initialization error:', err)
+    }
+
+    // AdSenseスクリプトが読み込まれるまで待つ
+    if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
+      setTimeout(initAd, 200)
+    } else {
+      const checkAdSense = setInterval(() => {
+        if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
+          clearInterval(checkAdSense)
+          setTimeout(initAd, 200)
+        }
+      }, 100)
+      setTimeout(() => clearInterval(checkAdSense), 10000)
     }
   }, [])
 
   return (
-    <div className={`mobile-ad-container ${variant} ${className}`}>
+    <div className={`mobile-ad-container ${variant} ${className}`} ref={adRef}>
       <div className="mobile-ad-banner">
         <div className="ad-label">広告</div>
         <div className="ad-content">
