@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { ProgressProvider } from './contexts/ProgressContext'
 import { BookmarkProvider } from './contexts/BookmarkContext'
 import { ThemeProvider } from './contexts/ThemeContext'
@@ -86,6 +87,7 @@ function App() {
                 </PracticeProvider>
               </BookmarkProvider>
             </ProgressProvider>
+            <SpeedInsights />
           </Router>
         </AuthProvider>
       </ThemeProvider>
