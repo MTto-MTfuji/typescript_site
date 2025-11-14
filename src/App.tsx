@@ -35,7 +35,6 @@ import TypeScriptPracticeIntermediate from './pages/practice/TypeScriptPracticeI
 import TypeScriptPracticeAdvanced from './pages/practice/TypeScriptPracticeAdvanced'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
-import PrivacyConsent from './components/PrivacyConsent'
 import AccountSettings from './pages/AccountSettings'
 import DataMigration from './pages/DataMigration'
 
@@ -46,7 +45,6 @@ function App() {
         <AuthProvider>
           <Router>
             <ScrollToTop />
-            <PrivacyConsent />
             <ProgressProvider>
               <BookmarkProvider>
                 <PracticeProvider>
