@@ -5,7 +5,6 @@ import LessonCard from '../../components/LessonCard'
 import ProgressTracker from '../../components/ProgressTracker'
 import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
-import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
 import SEOHead from '../../components/SEOHead'
 import { createWorldDatabase } from '../../utils/sqlDatabase'
@@ -709,9 +708,6 @@ export default function SQLBasics() {
         {currentChapterData.content}
       </div>
 
-      {/* 章の後に広告とナビゲーションボタンを配置 */}
-      <AdPlacement variant="inline" />
-      
       <ChapterNavigation
         key={`nav-${currentChapter}`}
         currentIndex={currentChapter}

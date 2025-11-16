@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import AnswerFeedback from '../../components/AnswerFeedback'
 import PracticeCodeBlock from '../../components/PracticeCodeBlock'
-import AdPlacement from '../../components/AdPlacement'
 import { usePractice } from '../../contexts/PracticeContext'
 import './PracticePage.css'
 
@@ -174,9 +173,6 @@ export default function JavaScriptPracticeAdvanced() {
           </div>
         )}
       </div>
-
-      {/* 広告スペース */}
-      <AdPlacement variant="inline" />
 
       <div className="question-navigation-wrapper">
         <div className="question-navigation">

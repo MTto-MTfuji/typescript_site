@@ -6,7 +6,6 @@ import TipBox from '../../components/TipBox'
 import ProgressTracker from '../../components/ProgressTracker'
 import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
-import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
 import SEOHead from '../../components/SEOHead'
 
@@ -478,7 +477,6 @@ console.log(nameWithSpace); // 「太郎 山田」`}
       difficulty: "beginner" as const,
       content: (
       <>
-        <AdPlacement variant="inline" />
         <LessonCard 
           title="7. 条件分岐：もし〜なら（if文）"
         description="条件によって処理を変える方法を学びましょう。"
@@ -1181,9 +1179,6 @@ console.log(product.isAvailable()); // true`}
         {currentChapterData.content}
       </div>
 
-      {/* 章の後に広告とナビゲーションボタンを配置 */}
-      <AdPlacement variant="inline" />
-      
       <ChapterNavigation
         key={`nav-${currentChapter}`}
         currentIndex={currentChapter}

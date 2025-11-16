@@ -5,7 +5,6 @@ import InteractiveCodeBlock from '../../components/InteractiveCodeBlock'
 import ProgressTracker from '../../components/ProgressTracker'
 import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
-import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
 import SEOHead from '../../components/SEOHead'
 
@@ -639,9 +638,6 @@ function handleLogin() {
         {currentChapterData.content}
       </div>
 
-      {/* 章の後に広告とナビゲーションボタンを配置 */}
-      <AdPlacement variant="inline" />
-      
       <ChapterNavigation
         key={`nav-${currentChapter}`}
         currentIndex={currentChapter}

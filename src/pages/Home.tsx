@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Code, Zap, BookOpen, CheckCircle, Database } from 'lucide-react'
-import AdPlacement from '../components/AdPlacement'
 import SEOHead from '../components/SEOHead'
 import './Home.css'
 
@@ -102,9 +101,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 学習パスとフレームワーク学習の間の広告 */}
-      <AdPlacement variant="inline" />
-
       <div className="frameworks-section">
         <h2>フレームワーク学習</h2>
         <div className="framework-cards">
@@ -126,9 +122,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* フレームワーク学習とSQL練習問題の間の広告 */}
-      <AdPlacement variant="inline" />
-
       <div className="frameworks-section">
         <h2>SQL練習問題</h2>
         <div className="framework-cards">
@@ -144,8 +137,6 @@ export default function Home() {
           </Link>
         </div>
       </div>
-
-      <AdPlacement variant="inline" />
 
       <div className="features">
         <h2>このサイトの特徴</h2>

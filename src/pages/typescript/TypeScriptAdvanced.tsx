@@ -6,7 +6,6 @@ import TipBox from '../../components/TipBox'
 import ProgressTracker from '../../components/ProgressTracker'
 import BookmarkButton from '../../components/BookmarkButton'
 import NoteEditor from '../../components/NoteEditor'
-import AdPlacement from '../../components/AdPlacement'
 import ChapterNavigation from '../../components/ChapterNavigation'
 import SEOHead from '../../components/SEOHead'
 
@@ -729,9 +728,6 @@ type Test6 = IsNever<string>; // false`}
         {currentChapterData.content}
       </div>
 
-      {/* 章の後に広告とナビゲーションボタンを配置 */}
-      <AdPlacement variant="inline" />
-      
       <ChapterNavigation
         key={`nav-${currentChapter}`}
         currentIndex={currentChapter}
