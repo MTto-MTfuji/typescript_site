@@ -142,3 +142,4 @@ CREATE TRIGGER update_notes_updated_at BEFORE UPDATE ON notes
 
 
 
+
