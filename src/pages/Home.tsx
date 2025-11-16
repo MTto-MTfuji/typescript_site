@@ -21,9 +21,9 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="ホーム"
-        description="JavaScriptとTypeScriptを基礎から実践的なフレームワークまで体系的に学べる学習サイト。初心者から上級者まで対応。無料で学習を始められます。"
-        keywords="JavaScript, TypeScript, 学習, プログラミング, React, Vue, Next.js, チュートリアル, 道場, 初心者, 無料学習サイト"
+        title="TypeScript学習サイト - ホーム"
+        description="TypeScript道場は、TypeScriptとJavaScriptを体系的に学べる無料の学習サイトです。基礎から実践的なフレームワーク、練習問題までステップアップしながら学習できます。"
+        keywords="TypeScript, TypeScript 学習サイト, TypeScript 練習問題, TypeScript 入門, JavaScript, プログラミング, React, Vue, Next.js, チュートリアル, 初心者, 無料 学習"
         jsonLd={jsonLd}
       />
       <div className="home">
